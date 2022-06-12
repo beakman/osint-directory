@@ -1,0 +1,14 @@
+<div class="bg-black text-white flex flex-col items-center justify-center h-screen">
+  <div class="text-center space-y-7">
+    <h1 class="text-5xl">OSINT.DIRECTORY</h1>
+    <p class="text-xl">
+      Curated OSINT resources for the infosec people.
+    </p>
+  </div>
+  <div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
