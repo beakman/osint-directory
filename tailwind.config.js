@@ -4,6 +4,14 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'sans': ['Mulish', 'Rubik'],
+      'mono': ['Space Mono', 'Roboto Mono'],
+      'display': ['Mulish', 'Rubik'],
+      'body': ['Space Mono', 'Roboto Mono']
+    }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

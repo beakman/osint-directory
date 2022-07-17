@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
@@ -8,38 +8,30 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit {
+  urlForm: FormGroup;
+  categories = [
+    'Tools',
+    'Repository',
+    'General',
+  ];
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
+    const regex = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+    this.urlForm = this.fb.group({
+      url: ['', [Validators.required, Validators.pattern(regex)]],
+      category: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {
   }
 
-  form = new FormGroup({});
-  model = {};
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'category',
-      type: 'select',
-      templateOptions: {
-        label: 'Category',
-        placeholder: 'Select category',
-        required: true,
-      }
-    },
-    {
-      key: 'url',
-      type: 'input',
-      templateOptions: {
-        label: 'URL',
-        placeholder: 'https://osint.directory',
-        required: true,
-      }
-    }
-  ];
+  onSubmit() {
+    console.log('Submit!');
+  }
 
-  onSubmit(model: any) {
-    console.log(model);
+  changeCategory(e: any) {
+    console.log('Event', e);
   }
 
 }

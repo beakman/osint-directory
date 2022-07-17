@@ -8,6 +8,9 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import {FormlyFieldInput} from "./shared/formly-field-input";
+import {FormlyFieldSelect} from "./shared/formly-field-select";
+import {FormlySelectModule} from "@ngx-formly/core/select";
 
 const routes: Routes = [
   {
@@ -19,6 +22,11 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('./contact/contact.module')
       .then(m => m.ContactModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module')
+      .then(m => m.AboutModule),
   },
   {
     path: 'auth',
@@ -39,15 +47,23 @@ const config: ExtraOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormlyFieldInput,
+    FormlyFieldSelect
   ],
   imports: [
     BrowserModule,
     LayoutModule,
     RouterModule.forRoot(routes, config),
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
-    FormlyBootstrapModule
+    FormlyModule.forRoot({
+      types: [
+        {name: 'input', component: FormlyFieldInput},
+        {name: 'select', component: FormlyFieldSelect},
+      ]
+    }),
+    FormlyBootstrapModule,
+    FormlySelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

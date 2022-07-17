@@ -1,1 +1,29 @@
-<p>contact works!</p>
+<div class="bg-gray-900 text-white flex min-h-screen items-center justify-start">
+    <div class="mx-auto w-full max-w-lg">
+      <h1 class="text-4xl font-medium">Contact us</h1>
+      <p class="mt-3 font-mono text-base md:text-lg">Email us at help@osint.directory or message us here:</p>
+
+      <form action="https://api.web3forms.com/submit" class="mt-10">
+
+        <!-- This is a working contact form.
+             Get your free access key from: https://web3forms.com/  -->
+
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"/>
+        <div class="flex flex-col gap-4">
+          <input type="text" name="name"
+                   class="text-gray-50 w-full md:w-auto p-3 focus:outline-none focus:border-blue-700 border-0 bg-gray-800 rounded"
+                   placeholder="Your name">
+          <input type="text" name="email"
+                   class="text-gray-50 w-full md:w-auto p-3 focus:outline-none focus:border-blue-700 border-0 bg-gray-800 rounded"
+                   placeholder="Email">
+          <textarea name="message" rows="5"
+                      class="text-gray-50 w-full md:w-auto p-3 focus:outline-none focus:border-blue-700 border-0 bg-gray-800 rounded"
+                      placeholder="Message"></textarea>
+        </div>
+        <button type="submit"
+                class="mt-5 font-semibold w-full md:w-auto text-white py-3 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
