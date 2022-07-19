@@ -16,9 +16,6 @@
       <h2 class="font-display font-medium text-lg md:text-2xl text-white line-clamp-1" title="{{ title }}">
         {{ title }}
       </h2>
-      <p class="mt-2 md:text-lg text-white line-clamp-1" title="{{ description }}">
-        {{ description }}
-      </p>
       <p class="mt-2 font-mono text-sm md:text-base text-gray-400 line-clamp-1 text-ellipsis" title="{{ url }}">
         {{ url }}
       </p>
@@ -27,11 +24,11 @@
       <div class="flex items-center">
         <div class="relative">
           <div class="rounded-full w-6 h-6 md:w-8 md:h-8 bg-gray-200"></div>
-          <span class="absolute top-0 right-0 inline-block w-3 h-3 bg-primary-red rounded-full"></span>
+          <img class="absolute top-0 right-0 inline-block w-3 h-3 bg-primary-red rounded-full" [src]="screenshot">
         </div>
 
         <p class="ml-2 text-gray-500 line-clamp-1">
-          {{ author }}
+          {{ author.username }}
         </p>
       </div>
 

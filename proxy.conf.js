@@ -8,7 +8,7 @@ const proxy = {
 }
 
 const PROXY_CONFIG = {
-  "/v1/*": proxy,
+  "/api/v1/*": proxy,
   "/admin/*": proxy,
   "/static/*": proxy,
   "/media/*": proxy,

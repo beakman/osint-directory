@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {User} from "../../../shared/models/user";
 
 @Component({
   selector: 'app-site-card',
@@ -8,8 +9,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class SiteCardComponent implements OnInit {
   @Input() title = 'Site title';
   @Input() description = 'Default description';
-  @Input() author = 'Anon';
+  @Input() author: User = new User(0, 'anon', '');
   @Input() url = 'https://osint.directory';
+  @Input() screenshot = '';
   @Input() score = 0;
 
   constructor() {}
